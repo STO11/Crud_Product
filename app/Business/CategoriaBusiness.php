@@ -3,7 +3,6 @@
 namespace App\Business;
 
 use App\Models\Categoria;
-use App\Models\Produto;
 
 class CategoriaBusiness
 {
@@ -11,19 +10,20 @@ class CategoriaBusiness
     public static function store($request)
     {
         $input = $request->all();
-        $categorias = Categoria::create($input);
-        if (!$categorias)
+        $categoria = Categoria::create($input);
+        if (!$categoria)
             return false;
-        return true;
+        return $categoria->id_categoria_planejamento;
     }
 
     public static function update($request, $id)
     {
         $input = $request->except('_token');
-        $categoria = Categoria::find($id)->update($input);
-        if ($categoria)
-            return true;
+        $categoria = Categoria::find($id);
+        if ($categoria->update($input))
+            return $categoria->id_categoria_planejamento;
         return false;
+       
     }
 
     public static function destroy($id)

@@ -15,23 +15,23 @@ class ProdutoBusiness
         $produto = Produto::create($input);
         if (!$produto)
             return false;
-        return true;
+        return $produto->id_produto;
     }
 
     public static function update($request, $id)
     {
         $input = $request->except('_token');
         $input['valor_produto'] = str_replace(['.', ','], ['', '.'], $input['valor_produto']); // remove mask
-        $produto = Produto::find($id)->update($input);
-        if ($produto)
-            return true;
+        $produto = Produto::find($id);
+        if ($produto->update($input))
+            return $produto->id_produto;
         return false;
     }
 
     public static function destroy($id)
     {
-        $categoria = Produto::find($id);
-        if ($categoria && $categoria->delete())
+        $produto = Produto::find($id);
+        if ($produto && $produto->delete())
             return true;
         return false;
     }
