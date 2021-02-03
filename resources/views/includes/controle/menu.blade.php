@@ -14,6 +14,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('controle.produto.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Produtos
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

@@ -2,14 +2,14 @@
     <strong>Suelton Lima &copy; 2021 <a href="sueltonlima@gmail.com">sueltonlima@gmail.com</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      {{-- <b>Version</b> 3.0.5 --}}
+        {{-- <b>Version</b> 3.0.5 --}}
     </div>
-  </footer>
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+</footer>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -20,7 +20,8 @@
 <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
+
 </script>
 <!-- Bootstrap 4 -->
 <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -55,57 +56,47 @@
 
 <!-- create for delete -->
 <div class="modal" tabindex="-1" role="dialog" id="modal-exclusao">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirmar exclusão</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Você gostaria de apagar esse registro?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="exclusao-sim" class="btn btn-success">Sim</button>
-        <button type="button" id="exclusao-nao" class="btn btn-danger" data-dismiss="modal">Não</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar exclusão</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Você gostaria de apagar esse registro?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="exclusao-sim" class="btn btn-success">Sim</button>
+                <button type="button" id="exclusao-nao" class="btn btn-danger" data-dismiss="modal">Não</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <!-- create for control menu -->
 <script>
-  if(localStorage.getItem('principal')){
-    $('.menu-close').eq(localStorage.getItem('principal')).addClass('menu-open');
-    $('.menu-open a').eq(0).addClass('active')
-  }
+    //format money BRL
+    $(document).ready(function() {
+        $('.money').mask('#.##0,00', {
+            reverse: true
+        });
+    });
+    $('.btn-danger').click(function(e) {
+        e.preventDefault(false);
+        $('#modal-exclusao').modal('show');
+        //console.log(e.currentTarget)
+        $('#exclusao-sim').click(() => {
+            window.location.href = e.currentTarget.href;
+        })
+    });
 
-  if(localStorage.getItem('sub')){
-    $('.nav-item.has-treeview.menu-close.menu-open > ul > li > a').eq(localStorage.getItem('sub')).addClass('active');
-  }
-
-  $('.menu-close').click(function() {
-      localStorage.setItem('principal', $(this).index());
-  });
-
-  $('.nav-item.has-treeview.menu-close.menu-open > ul > li').click(function() {
-    console.log($(this).index())
-    localStorage.setItem('sub', $(this).index());
-  });
-
-  $('.btn-danger').click(function(e){
-    e.preventDefault(false);
-    $('#modal-exclusao').modal('show');
-    //console.log(e.currentTarget)
-    $('#exclusao-sim').click(() => {
-      window.location.href = e.currentTarget.href;
-    })
-  });
 </script>
 
 </body>
+
 </html>

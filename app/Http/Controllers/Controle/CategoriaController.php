@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Controle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categoria;
-use \Illuminate\Support\MessageBag;
 
 use App\Business\CategoriaBusiness;
 

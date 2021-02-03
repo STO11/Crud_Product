@@ -3,6 +3,7 @@
 namespace App\Business;
 
 use App\Models\Categoria;
+use App\Models\Produto;
 
 class CategoriaBusiness
 {
@@ -28,8 +29,12 @@ class CategoriaBusiness
     public static function destroy($id)
     {
         $categoria = Categoria::find($id);
-        if ($categoria->delete())
-            return true;
+        if ($categoria) {
+            if ($categoria->produtos->count())
+                return false;
+            if ($categoria->delete())
+                return true;
+        }
         return false;
     }
 }
