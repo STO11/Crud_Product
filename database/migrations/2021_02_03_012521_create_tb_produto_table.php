@@ -21,7 +21,7 @@ class CreateTbProdutoTable extends Migration
             $table->decimal('valor_produto', 10, 2);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('id_categoria_produto')->references('id_categoria_planejamento')->on('tb_categoria_produtos');
+            $table->foreign('id_categoria_produto')->references('id_categoria_planejamento')->on('tb_categoria_produto');
         });
     }
 

@@ -7,12 +7,13 @@
 
 @section('menu')
     @include('includes.controle.menu')
-    
+
 @show
-<div class="content-wrapper">
-    @yield('content')
+<div class="content-wrapper p-4">
+    <div class="w-50">
+        @yield('content')
+    </div>
 </div>
 
 @section('footer')
 @include('includes.controle.footer')
-   

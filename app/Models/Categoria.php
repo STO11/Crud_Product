@@ -7,8 +7,10 @@ class Categoria extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'tb_categoria_produtos';
+    protected $table = 'tb_categoria_produto';
+
+    protected $primaryKey = 'id_categoria_planejamento';
     
-    protected $fillable = [];
+    protected $fillable = ['nome_categoria'];
 
 }

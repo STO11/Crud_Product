@@ -13,7 +13,7 @@ class CreateTbCategoriaProdutoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_categoria_produtos', function (Blueprint $table) {
+        Schema::create('tb_categoria_produto', function (Blueprint $table) {
             $table->increments('id_categoria_planejamento');
             $table->string('nome_categoria');
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateTbCategoriaProdutoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_categoria_produtos');
+        Schema::dropIfExists('tb_categoria_produto');
     }
 }
