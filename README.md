@@ -43,3 +43,9 @@ php artisan migrate
 php artisan serve
 ```
 Acesse a url local: http://127.0.0.1:8000
+
+- Para testes utilize 
+
+```sh
+./vendor/bin/phpunit
+```

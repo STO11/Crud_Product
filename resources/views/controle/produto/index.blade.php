@@ -23,16 +23,16 @@
                                 produto</a>
                             <br /><br />
                             <div class="card-body table-responsive">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        <th>Categoria</th>
-                                        <th>Nome</th>
-                                        <th>Preço</th>
-                                        <th>Data cadastro</th>
-                                        <th>Opções</th>
-                                    </thead>
-                                    <tbody>
-                                        @if ($produtos->count())
+                                @if ($produtos->count())
+                                    <table class="table table-head-fixed text-nowrap">
+                                        <thead>
+                                            <th>Categoria</th>
+                                            <th>Nome</th>
+                                            <th>Preço</th>
+                                            <th>Data cadastro</th>
+                                            <th>Opções</th>
+                                        </thead>
+                                        <tbody>
                                             @foreach ($produtos as $produto)
                                                 <tr>
                                                     <td>
@@ -60,9 +60,11 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <h5>Sem registros</h5>
+                                @endif
                             </div>
 
                         </div>

@@ -21,16 +21,17 @@
                         </div>
                         <div class="card-body">
                             @include('includes.controle.mensagem')
-                            <a class="btn btn-primary" href="{{ route('controle.categoria.create') }}">Cadastrar nova categoria</a>
+                            <a class="btn btn-primary" href="{{ route('controle.categoria.create') }}">Cadastrar nova
+                                categoria</a>
                             <br /><br />
                             <div class="card-body table-responsive">
-                                <table class="table table-head-fixed text-nowrap">
-                                    <thead>
-                                        <th>Nome</th>
-                                        <th>Opções</th>
-                                    </thead>
-                                    <tbody>
-                                        @if ($categorias->count())
+                                @if ($categorias->count())
+                                    <table class="table table-head-fixed text-nowrap">
+                                        <thead>
+                                            <th>Nome</th>
+                                            <th>Opções</th>
+                                        </thead>
+                                        <tbody>
                                             @foreach ($categorias as $categoria)
                                                 <tr>
                                                     <td>{{ $categoria->nome_categoria }}</td>
@@ -47,9 +48,11 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        @endif
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <h5>Sem registros</h5>
+                                @endif
                             </div>
 
                         </div>
