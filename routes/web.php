@@ -4,7 +4,7 @@ Route::group([
     'prefix' => '/',
 ], function () {
     $main = "App\Http\Controllers\Controle";
-    Route::get('home', ['as' => 'controle.home', 'uses' => "$main\HomeController@home"]);
+    Route::get('/', ['as' => 'controle.home', 'uses' => "$main\HomeController@home"]);
     Route::get('categoria', ['uses' => "$main\CategoriaController@index"])->name('controle.categoria.index');
     Route::get('categoria/create', ['uses' => "$main\CategoriaController@create"])->name('controle.categoria.create');
     Route::get('categoria/show/{id}', ['uses' => "$main\CategoriaController@show"])->name('controle.categoria.show');
